@@ -18,7 +18,7 @@ void	ft_exit_msg(char *msg, int ret)
 	exit(ret);
 }
 
-int	ft_ret_msg(char *msg, int ret)
+int		ft_ret_msg(char *msg, int ret)
 {
 	write(1, msg, ft_strlen(msg));
 	return (ret);

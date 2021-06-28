@@ -6,6 +6,8 @@
 # define JULIA 1
 # define MANDELBROT 2
 
+# define OK write(1, "OK\n", 3);
+
 # include "../libft/libft.h"
 # include "../minilibX/mlx.h"
 
@@ -25,7 +27,7 @@ typedef struct	s_mlx
 	int			*data;
 }				t_mlx;
 
-int				launcher(int mode, t_res res);
+void			launcher(int mode, t_res res);
 
 int				new_win(t_mlx *mlx, t_res *res);
 int				img_init(t_mlx *mlx, t_res res);

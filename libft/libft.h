@@ -46,4 +46,7 @@ size_t				ft_strclen(char *str, char c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
+char				*ft_toupper(char *str);
+char				*ft_tolower(char *str);
+
 #endif
