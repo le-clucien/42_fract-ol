@@ -36,12 +36,12 @@ $(NAME)		:	lib mandatory
 all			:	$(NAME)
 
 lib			:
-	cd libft ; make ; cd .. 
+		cd libft ; make ; cd .. 
 
 print_s		:
-	echo -n "srcs: "
+		echo -n "srcs: "
 printv_s	: 
-	echo " ✓"
+		echo " ✓"
 
 .c.o		:
 		echo -n "#"
@@ -53,7 +53,6 @@ mandatory	: print_s $(OBJS) printv_s
 clean		:
 		rm -f $(OBJS)
 		cd libft ; make clean ; cd ..
-		cd minilibX ; make clean ; cd ..
 		echo "Clean ✓"
 
 fclean		:	clean
