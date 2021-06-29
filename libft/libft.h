@@ -19,6 +19,8 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+# define OK write(1, "OK\n", 3);
+# define KO write(1, "KO\n", 3);
 
 int					ft_atoi(char *str, int *nb);
 

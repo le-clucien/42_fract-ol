@@ -24,8 +24,8 @@ char		*ft_toupper(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 		str[i] = ft_ctoup(str[i]);
 	return (str);
 }
@@ -42,8 +42,8 @@ char		*ft_tolower(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 		str[i] = ft_ctolow(str[i]);
 	return (str);
 }
