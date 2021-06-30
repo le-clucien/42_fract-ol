@@ -13,6 +13,7 @@
 NAME		=	fract-ol
 
 FILES_C		=	\
+				hook.c \
 				main.c \
 				routers.c \
 				window.c
