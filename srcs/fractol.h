@@ -30,8 +30,8 @@ typedef struct	s_mlx
 	int			endian;
 }				t_mlx;
 
-int				hk_key_press(int key, void *ptr);
-int				hk_key_release(int key, void *ptr);
+int				hk_key_press(int key, t_mlx *mlx);
+int				hk_button_press(int key, void *ptr);
 int				hk_loop(void *ptr);
 
 int				exit_program(t_mlx *mlx);

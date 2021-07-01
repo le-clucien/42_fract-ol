@@ -39,8 +39,8 @@ void	launcher(int mode, t_res res)
 	if (new_win(&mlx, &res))
 	{
 		init_img(&mlx, res);
-		mlx_hook(mlx.win, 2, 1, hk_key_press, NULL);
-		mlx_hook(mlx.win, 3, 2, hk_key_release, NULL);
+		mlx_hook(mlx.win, 2, (1L<<0), hk_key_press, &mlx);
+		mlx_hook(mlx.win, 4, (1L<<2), hk_button_press, NULL);
 		mlx_hook(mlx.win, 17, (1L << 17), exit_program, &mlx);
 		mlx_loop_hook(mlx.ptr, hk_loop, NULL);
 		mlx_loop(mlx.ptr);

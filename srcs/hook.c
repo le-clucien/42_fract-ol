@@ -2,17 +2,19 @@
 
 #include "fractol.h"
 
-int	hk_scroll_up(int key, void *ptr)
+int	hk_key_press(int key, t_mlx *mlx)
 {
-	(void)ptr;
-	printf("press: %d\n", key);
+	if (key == 65307)
+		exit_program(mlx);
 	return (1);
 }
 
-int	hk_scroll_down(int key, void *ptr) // ?
+int	hk_button_press(int key, void *ptr)
 {
-	(void)ptr;
-	printf("press: %d\n", key);
+	if (key == 4) // scroll up
+		(void)ptr;
+	else if (key == 5)
+		(void)ptr;
 	return (1);
 }
 
