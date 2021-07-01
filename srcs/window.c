@@ -15,18 +15,12 @@ int	init_img(t_mlx *mlx, t_res res)
 
 int	new_win(t_mlx *mlx, t_res *res)
 {
-	t_res	screen;
-
 	mlx->ptr = mlx_init();
 	if (!mlx->ptr)
 		return (ft_ret_msg("error: mlx_init() failed\n", 0));
-	screen.x = 0;
-	screen.y = 0;
-	mlx_get_screen_size(mlx->ptr, &screen.x, &screen.y);
-	if (res->x == 1 || res->x > screen.x)
-		res->x = screen.x;
-	if (res->y == 1 || res->y > screen.y)
-		res->y = screen.y;
+	mlx_get_screen_size(mlx->ptr, &res->x, &res->y);
+	res->x -= 250;
+	res->y -= 250;
 	mlx->win = mlx_new_window(mlx->ptr, res->x, res->y, "fract-ol");
 	if (!mlx->win)
 		ft_ret_msg("error: mlx_new_window() failed\n", 0);

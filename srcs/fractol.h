@@ -30,12 +30,31 @@ typedef struct	s_mlx
 	int			endian;
 }				t_mlx;
 
-int				hk_key_press(int key, t_mlx *mlx);
-int				hk_button_press(int key, void *ptr);
-int				hk_loop(void *ptr);
+typedef struct	s_data
+{
+	int			mode;
+	double		cx; // constant real
+	double		cz; // constant imaginary
+	double		px; // position of x radius
+	double		py; // position of y radius
+}				t_data;
+
+typedef struct	s_dm
+{
+	t_mlx		*m;
+	t_data		*d;
+}				t_dm;
+
+void			draw_in(t_dm *dm);
+
+int				hk_key_press(int key, t_dm *dm);
+int				hk_button_press(int key, t_dm *dm);
+int				hk_loop(t_dm *dm);
 
 int				exit_program(t_mlx *mlx);
-void			launcher(int mode, t_res res);
+
+int				exit_program(t_mlx *mlx);
+void			launcher(int mode);
 
 int				new_win(t_mlx *mlx, t_res *res);
 int				init_img(t_mlx *mlx, t_res res);
