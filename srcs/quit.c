@@ -2,22 +2,31 @@
 
 #include "fractol.h"
 
-void	destroy_mlx(t_mlx *mlx)
+void	destroy_mlx(t_dm *dm)
 {
-	if (mlx->img)
-		mlx_destroy_image(mlx->ptr, mlx->img);
-	if (mlx->win)
-		mlx_destroy_window(mlx->ptr, mlx->win);
-	if (mlx->ptr)
+	if (dm->mlx->img)
+		mlx_destroy_image(dm->mlx->ptr, dm->mlx->img);
+	if (dm->mlx->win)
+		mlx_destroy_window(dm->mlx->ptr, dm->mlx->win);
+	if (dm->mlx->ptr)
 	{
-		mlx_destroy_display(mlx->ptr);
-		free(mlx->ptr);
+		mlx_destroy_display(dm->mlx->ptr);
+		free(dm->mlx->ptr);
 	}
+	free(dm->mlx);
 }
 
-int		exit_program(t_mlx *mlx)
+int		exit_program(t_dm *dm)
 {
-	destroy_mlx(mlx);
+	if (!dm)
+		exit(1);
+	if (dm->mlx)
+		destroy_mlx(dm);
+	if (dm->data)
+		free(dm->data);
+	if (dm->res)
+		free(dm->res);
+	free(dm);
 	exit(1);
 	return (1);
 }
