@@ -30,3 +30,10 @@ int		exit_program(t_dm *dm)
 	exit(1);
 	return (1);
 }
+
+int		exit_program_msg(t_dm *dm, char *str)
+{
+	ft_putstr(str);
+	exit_program(dm);
+	return (1);
+}

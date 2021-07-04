@@ -3,6 +3,7 @@ NAME	= libft.a
 
 SRCS	= \
 	ft_atoi.c \
+	ft_is_str.c \
 	ft_is.c \
 	ft_math.c \
 	ft_memset.c \

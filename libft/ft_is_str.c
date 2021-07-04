@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is.c                                            :+:      :+:    :+:   */
+/*   ft_is_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clucien <clucien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,37 +12,16 @@
 
 #include "libft.h"
 
-int	ft_is_alpha(char c)
+int	ft_is_str_alpha(char *str)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
-}
+	int	i;
 
-int	ft_is_even(int i)
-{
-	if (i % 2 == 0)
-		return (1);
-	return (0);
-}
-
-int	ft_is_space(char c)
-{
-	if (c == ' ' || c == '\t')
-		return (1);
-	return (0);
-}
-
-int	ft_is_digit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	ft_is_sign(char c)
-{
-	if (c == '-' || c == '+')
-		return (1);
-	return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_is_alpha(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

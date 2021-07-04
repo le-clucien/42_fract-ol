@@ -16,7 +16,9 @@ FILES_C		=	\
 				draw.c \
 				hook.c \
 				quit.c \
+				iterate.c \
 				main.c \
+				parsing.c \
 				routers.c \
 				window.c
 

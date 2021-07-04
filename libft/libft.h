@@ -24,6 +24,9 @@
 
 int					ft_atoi(char *str, int *nb);
 
+int					ft_is_str_alpha(char *str);
+
+int					ft_is_alpha(char c);
 int					ft_is_even(int i);
 int					ft_is_space(char c);
 int					ft_is_digit(char c);

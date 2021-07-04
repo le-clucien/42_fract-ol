@@ -3,10 +3,13 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# define SCREEN_BORDER 250
+# define MAX_ITERATION 50
+# define CONST_INC 0.05
+// # define HOOK_SLEEP 5000
+
 # define JULIA 1
 # define MANDELBROT 2
-# define FSLEEP 700
-# define SCREEN_BORDER 400
 
 # include "../libft/libft.h"
 # include "../minilibX/mlx.h"
@@ -21,9 +24,14 @@ typedef struct	s_xy
 	int			y;
 }				t_xy;
 
+typedef struct	 s_dxy
+{
+	double		x;
+	double		y;
+}				t_dxy;
+
 typedef struct	s_mlx
 {
-	int			test;
 	void		*ptr;
 	void		*win;
 	void		*img;
@@ -35,17 +43,22 @@ typedef struct	s_mlx
 
 typedef struct	s_data
 {
-	char		direction;
-	int			mode;
-	t_xy		c; // constant
-	int			var;
+	int			type;
+	t_dxy		c; // constant
 }				t_data;
+
+typedef struct	s_res
+{
+	t_xy		d;
+	t_dxy		f;
+}				t_res;
+
 
 typedef struct	s_dm
 {
 	t_mlx		*mlx;
 	t_data		*data;
-	t_xy		*res;
+	t_res		*res;
 }				t_dm;
 
 void			draw_fractal(t_dm *dm);
@@ -55,10 +68,16 @@ int				hk_key_release(int key, t_dm *dm);
 int				hk_button_press(int key, t_dm *dm);
 int				hk_loop(t_dm *dm);
 
-int				exit_program(t_dm *dm);
-void			launcher(int mode);
+int				iterate_julia(t_dxy z, t_dxy c);
 
-int				new_win(t_mlx *mlx, t_xy *res);
+int				get_type(int *type, char *arg);
+
+int				exit_program(t_dm *dm);
+int				exit_program_msg(t_dm *dm, char *str);
+
+void			launcher(int ac, char **av);
+
+int				new_win(t_mlx *mlx, t_res *res);
 int				init_img(t_mlx *mlx, t_xy *res);
 
 #endif

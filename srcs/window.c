@@ -2,6 +2,14 @@
 
 #include "fractol.h"
 
+void	default_mlx(t_mlx *mlx)
+{
+	mlx->ptr = NULL;
+	mlx->win = NULL;
+	mlx->img = NULL;
+	mlx->data = NULL;
+}
+
 int	init_img(t_mlx *mlx, t_xy *res)
 {
 	mlx->img = mlx_new_image(mlx->ptr, res->x, res->y);
@@ -13,15 +21,18 @@ int	init_img(t_mlx *mlx, t_xy *res)
 	return (1);
 }
 
-int	new_win(t_mlx *mlx, t_xy *res)
+int	new_win(t_mlx *mlx, t_res *res)
 {
+	default_mlx(mlx);
 	mlx->ptr = mlx_init();
 	if (!mlx->ptr)
 		return (ft_ret_msg("error: mlx_init() failed\n", 0));
-	mlx_get_screen_size(mlx->ptr, &res->x, &res->y);
-	res->x -= SCREEN_BORDER;
-	res->y -= SCREEN_BORDER;
-	mlx->win = mlx_new_window(mlx->ptr, res->x, res->y, "fract-ol");
+	mlx_get_screen_size(mlx->ptr, &res->d.x, &res->d.y);
+	res->d.x -= SCREEN_BORDER;
+	res->d.y -= SCREEN_BORDER;
+	res->f.x = (double)res->d.x;
+	res->f.y = (double)res->d.y;
+	mlx->win = mlx_new_window(mlx->ptr, res->d.x, res->d.y, "fract-ol");
 	if (!mlx->win)
 		ft_ret_msg("error: mlx_new_window() failed\n", 0);
 	return (1);

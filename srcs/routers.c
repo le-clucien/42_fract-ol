@@ -19,51 +19,44 @@ t_dm	*create_dm(void)
 	if (!dm->data)
 		return (NULL);
 	dm->res = NULL;
-	dm->res = (t_xy *)malloc(sizeof(t_xy));
+	dm->res = (t_res *)malloc(sizeof(t_res));
 	if (!dm->res)
 		return (NULL);
 	return (dm);
 }
 
-void	init_mlx(t_mlx *mlx)
+void	set_data(t_dm *dm, int ac, char **av)
 {
-	mlx->test = 32;
-	mlx->ptr = NULL;
-	mlx->win = NULL;
-	mlx->img = NULL;
-	mlx->data = NULL;
+	(void)ac;
+	if (!get_type(&dm->data->type, av[1]))
+		exit_program(dm);
+	dm->data->c.x = 0;
+	dm->data->c.y = -0.8;
 }
 
-void	set_data(t_data *data, int mode)
+void	mlx_looper(t_dm *dm)
 {
-	data->mode = mode;
-	data->c.x = -0.5;
-	data->c.y = 0.5;
-	data->var = 1;
-	data->direction = 0;
+	mlx_hook(dm->mlx->win, 2, (1L<<0), hk_key_press, dm);
+	mlx_hook(dm->mlx->win, 3, (1L<<1), hk_key_release, dm);
+	mlx_hook(dm->mlx->win, 4, (1L<<2), hk_key_press, dm);
+	mlx_hook(dm->mlx->win, 17, (1L << 17), exit_program, dm);
+	mlx_loop_hook(dm->mlx->ptr, hk_loop, dm);
+	mlx_loop(dm->mlx->ptr);
 }
 
-void	launcher(int mode)
+void	launcher(int ac, char **av)
 {
 	t_dm	*dm;
 
 	dm = create_dm();
 	if (!dm)
-	{
-		ft_putstr("error: malloc() failed\n");
-		exit_program(dm);
-	}
-	init_mlx(dm->mlx);
-	set_data(dm->data, mode);
+		exit_program_msg(dm, "error: malloc() failed\n");
+	set_data(dm, ac, av);
 	if (new_win(dm->mlx, dm->res))
 	{
-		init_img(dm->mlx, dm->res);
-		mlx_hook(dm->mlx->win, 2, (1L<<0), hk_key_press, dm);
-		mlx_hook(dm->mlx->win, 3, (1L<<1), hk_key_release, dm);
-		mlx_hook(dm->mlx->win, 4, (1L<<2), hk_key_press, dm);
-		mlx_hook(dm->mlx->win, 17, (1L << 17), exit_program, dm);
-		mlx_loop_hook(dm->mlx->ptr, hk_loop, dm);
-		mlx_loop(dm->mlx->ptr);
+		init_img(dm->mlx, &dm->res->d);
+		draw_fractal(dm);
+		mlx_looper(dm);
 	}
 	exit_program(dm);
 }
