@@ -8,6 +8,13 @@ int	hk_key_press(int key, t_dm *dm)
 	// return (1);
 	if (key == 65362 || key == 65364)
 	{
+		// replace by move.x
+		dm->data->zoom += key - 65363;
+		draw_fractal(dm);
+	}
+	if (key == 65361 || key == 65363)
+	{
+		dm->data->move.y += key - 65362;
 		draw_fractal(dm);
 	}
 	if (key == 119 || key == 113)

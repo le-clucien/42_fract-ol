@@ -3,8 +3,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define SCREEN_BORDER 250
-# define MAX_ITERATION 50
+# define SCREEN_BORDER 300
+# define MAX_ITERATION 100
 # define CONST_INC 0.05
 // # define HOOK_SLEEP 5000
 
@@ -44,6 +44,8 @@ typedef struct	s_mlx
 typedef struct	s_data
 {
 	int			type;
+	double		zoom;
+	t_dxy		move;
 	t_dxy		c; // constant
 }				t_data;
 

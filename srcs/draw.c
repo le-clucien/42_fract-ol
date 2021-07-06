@@ -4,23 +4,34 @@
 
 int		color_set(int depth)
 {
-	return ((depth + 6666) * 666 * 666);
+	if (depth == 0)
+		return 0;
+	else
+		return ((depth + 6666) * 666 * 666);
 }
 
-void	draw_pixel(t_dm *dm, t_xy position)
+int		iterate(t_dm *dm, t_dxy rad)
+{
+	if (dm->data->type == JULIA)
+		return (iterate_julia(rad, dm->data->c));
+	// else if (dm->data->type == MANDELBROT)
+	// 	return (iterate_mandelbrot(rad, dm->data->c));
+	else
+		return 0;
+}
+
+void	draw_pixel(t_dm *dm, t_xy p)
 {
 	t_dxy	rad;
-	int		iterations;
 
-	rad.x = (double)(position.x * 2) / dm->res->f.x - 1.0;
-	rad.y = (double)(position.y * 2) / dm->res->f.y - 1.0;
-	if (dm->data->type == JULIA)
-		iterations = iterate_julia(rad, dm->data->c);
-	if (iterations)
-		iterations = color_set(iterations);
-	else
-		iterations = 0;
-	dm->mlx->data[position.y * dm->res->d.x + position.x] = iterations;
+	// rad.x = (double)(position.x * 2) / dm->res->f.x - 1.0;
+	// rad.y = (double)(p.y * 2) / dm->res->f.y - 1.0;
+	rad.x = 1.5 * ((double)p.x - dm->res->f.x / 2) /
+			(0.5 * dm->data->zoom * dm->res->f.x) + dm->data->move.x;
+	rad.y = ((double)p.y - dm->res->d.y / 2) /
+			(0.5 * dm->data->zoom * dm->res->d.y) + dm->data->move.y;
+	dm->mlx->data[p.y * dm->res->d.x + p.x] =
+			color_set(iterate(dm, rad));
 }
 
 void	draw_fractal(t_dm *dm)
