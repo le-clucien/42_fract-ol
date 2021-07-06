@@ -3,7 +3,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define SCREEN_BORDER 400
+# define WIDTH 900
+# define HEIGHT 600
 # define MAX_ITERATION 255
 # define CONST_INC 0.05
 // # define HOOK_SLEEP 5000
@@ -47,6 +48,7 @@ typedef struct	s_data
 	double		zoom;
 	t_dxy		move;
 	t_dxy		c; // constant
+	int			color_shift;
 }				t_data;
 
 typedef struct	s_res

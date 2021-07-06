@@ -35,6 +35,7 @@ void	set_data(t_dm *dm, int ac, char **av)
 	dm->data->zoom = 1.0;
 	dm->data->move.x = 0.0;
 	dm->data->move.y = 0.0;
+	dm->data->color_shift = 0;
 }
 
 void	mlx_looper(t_dm *dm)

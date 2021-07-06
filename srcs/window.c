@@ -21,19 +21,29 @@ int	init_img(t_mlx *mlx, t_xy *res)
 	return (1);
 }
 
+int	set_res(t_mlx *mlx, t_res *res)
+{
+	if (!mlx_get_screen_size(mlx->ptr, &res->d.x, &res->d.y))
+		return (ft_ret_msg("error: () failed\n", 0));
+	if (WIDTH != 'F' && WIDTH < res->d.x)
+		res->d.x = WIDTH;
+	if (HEIGHT != 'F' && HEIGHT < res->d.y)
+		res->d.y = HEIGHT;
+	res->f.x = (double)res->d.x;
+	res->f.y = (double)res->d.y;
+	return (1);
+}
+
 int	new_win(t_mlx *mlx, t_res *res)
 {
 	default_mlx(mlx);
 	mlx->ptr = mlx_init();
 	if (!mlx->ptr)
 		return (ft_ret_msg("error: mlx_init() failed\n", 0));
-	mlx_get_screen_size(mlx->ptr, &res->d.x, &res->d.y);
-	res->d.x -= SCREEN_BORDER;
-	res->d.y -= SCREEN_BORDER;
-	res->f.x = (double)res->d.x;
-	res->f.y = (double)res->d.y;
+	if (!set_res(mlx, res))
+		return (0);
 	mlx->win = mlx_new_window(mlx->ptr, res->d.x, res->d.y, "fract-ol");
 	if (!mlx->win)
-		ft_ret_msg("error: mlx_new_window() failed\n", 0);
+		return (ft_ret_msg("error: mlx_new_window() failed\n", 0));
 	return (1);
 }

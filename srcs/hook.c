@@ -13,6 +13,8 @@ int	hk_key_press(int key, t_dm *dm)
 		dm->data->zoom += 1 * (dm->data->zoom / 9);
 	else if (key == 59)
 		dm->data->zoom -= 1 * (dm->data->zoom / 9);
+	if (key == 97 || key == 115)
+		dm->data->color_shift += (key - 106);
 	else if (key == 65362 || key == 65364)
 		dm->data->move.y += (key - 65363) * (0.1 / (dm->data->zoom / 2));
 	else if (key == 65361 || key == 65363)

@@ -2,11 +2,13 @@
 
 #include "fractol.h"
 
-int		color_set(int depth)
+int		color_set(int depth, int color_shift)
 {
 	if (depth == 0)
 		return (0);
-	return (depth * 2 | depth * 3 << 8 | depth * 3 << 16);
+	return (depth * (2 + color_shift * 2) |
+			depth * (3 + color_shift / 2) << 8 |
+			depth * (3 + color_shift) << 16);
 }
 
 int		iterate(t_dm *dm, t_dxy rad)
@@ -28,7 +30,7 @@ void	draw_pixel(t_dm *dm, t_xy p)
 	rad.y = ((double)p.y - dm->res->d.y / 2) /
 			(0.5 * dm->data->zoom * dm->res->d.y) + dm->data->move.y;
 	dm->mlx->data[p.y * dm->res->d.x + p.x] =
-			color_set(iterate(dm, rad));
+			color_set(iterate(dm, rad), dm->data->color_shift);
 }
 
 void	draw_fractal(t_dm *dm)
