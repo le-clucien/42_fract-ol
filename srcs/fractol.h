@@ -7,6 +7,8 @@
 # define HEIGHT 600
 # define MAX_ITERATION 255
 # define CONST_INC 0.05
+# define CONSTANT_R -0.7269
+# define CONSTANT_I 0.1889
 // # define HOOK_SLEEP 5000
 
 # define JULIA 1
