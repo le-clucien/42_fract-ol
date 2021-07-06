@@ -3,8 +3,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define SCREEN_BORDER 300
-# define MAX_ITERATION 100
+# define SCREEN_BORDER 400
+# define MAX_ITERATION 255
 # define CONST_INC 0.05
 // # define HOOK_SLEEP 5000
 
@@ -71,6 +71,7 @@ int				hk_button_press(int key, t_dm *dm);
 int				hk_loop(t_dm *dm);
 
 int				iterate_julia(t_dxy z, t_dxy c);
+int				iterate_mandelbrot(t_dxy z);
 
 int				get_type(int *type, char *arg);
 

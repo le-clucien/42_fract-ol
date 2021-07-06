@@ -5,27 +5,24 @@
 int		color_set(int depth)
 {
 	if (depth == 0)
-		return 0;
-	else
-		return ((depth + 6666) * 666 * 666);
+		return (0);
+	return (depth * 2 | depth * 3 << 8 | depth * 3 << 16);
 }
 
 int		iterate(t_dm *dm, t_dxy rad)
 {
 	if (dm->data->type == JULIA)
 		return (iterate_julia(rad, dm->data->c));
-	// else if (dm->data->type == MANDELBROT)
-	// 	return (iterate_mandelbrot(rad, dm->data->c));
+	else if (dm->data->type == MANDELBROT)
+		return (iterate_mandelbrot(rad));
 	else
-		return 0;
+		return (0);
 }
 
 void	draw_pixel(t_dm *dm, t_xy p)
 {
 	t_dxy	rad;
 
-	// rad.x = (double)(position.x * 2) / dm->res->f.x - 1.0;
-	// rad.y = (double)(p.y * 2) / dm->res->f.y - 1.0;
 	rad.x = 1.5 * ((double)p.x - dm->res->f.x / 2) /
 			(0.5 * dm->data->zoom * dm->res->f.x) + dm->data->move.x;
 	rad.y = ((double)p.y - dm->res->d.y / 2) /
