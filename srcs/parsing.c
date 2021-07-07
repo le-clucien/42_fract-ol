@@ -8,8 +8,10 @@ int		get_type(int *type, char *arg)
 		*type = JULIA;
 	else if (!ft_strcmp("MANDELBROT", ft_toupper(arg)))
 		*type = MANDELBROT;
+	else if (!ft_strcmp("TRICORN", ft_toupper(arg)))
+		*type = TRICORN;
 	else
-		return (ft_ret_msg("error: invalid fractal type\n", 0));
+		return (ft_ret_msg("error: unknown error\n", 0));
 	return (1);
 }
 

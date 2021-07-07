@@ -39,3 +39,9 @@ int		iterate_mandelbrot(t_dxy z)
 	}
 	return (iterations);
 }
+
+int		iterate_tricorn(t_dxy z)
+{
+	(void)z;
+	return (1);
+}

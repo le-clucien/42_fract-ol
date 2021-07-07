@@ -22,11 +22,23 @@ FILES_C		=	\
 				routers.c \
 				window.c
 
+FILES_B		=	\
+				draw.c \
+				hook_bonus.c \
+				quit.c \
+				iterate.c \
+				main.c \
+				parsing.c \
+				routers.c \
+				window.c
+
 DIR_C		=	srcs/
 
 SRCS		=	$(addprefix $(DIR_C), $(FILES_C))
+SRCS_B		=	$(addprefix $(DIR_C), $(FILES_B))
 
 OBJS		=	$(SRCS:.c=.o)
+OBJS_B		=	$(SRCS_B:.c=.o)
 
 LIBFT		=	libft/libft.a
 
@@ -45,15 +57,20 @@ lib			:
 
 print_s		:
 		echo -n "srcs: "
-printv_s	: 
+print_b		:
+		echo -n "srcs bonuses: "
+printv		: 
 		echo " ✓"
 
 .c.o		:
 		echo -n "#"
 		$(CC) -c $< -o $(<:.c=.o)
 
-mandatory	: print_s $(OBJS) printv_s
+mandatory	: print_s $(OBJS) printv
 	$(CC) -o $(NAME) $(OBJS) $(LIBFT) $(MLX_FLG)
+
+bonus		: print_b $(OBJS_B) printv
+	$(CC) -o $(NAME) $(OBJS_B) $(LIBFT) $(MLX_FLG)
 
 clean		:
 		rm -f $(OBJS)

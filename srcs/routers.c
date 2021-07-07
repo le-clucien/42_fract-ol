@@ -11,14 +11,14 @@ t_dm	*create_dm(void)
 	if (!dm)
 		return (NULL);
 	dm->mlx = NULL;
+	dm->data = NULL;
+	dm->res = NULL;
 	dm->mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!dm->mlx)
 		return (NULL);
-	dm->data = NULL;
 	dm->data = (t_data *)malloc(sizeof(t_data));
 	if (!dm->data)
 		return (NULL);
-	dm->res = NULL;
 	dm->res = (t_res *)malloc(sizeof(t_res));
 	if (!dm->res)
 		return (NULL);

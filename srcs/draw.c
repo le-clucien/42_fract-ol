@@ -17,6 +17,8 @@ int		iterate(t_dm *dm, t_dxy rad)
 		return (iterate_julia(rad, dm->data->c));
 	else if (dm->data->type == MANDELBROT)
 		return (iterate_mandelbrot(rad));
+	else if (dm->data->type == TRICORN)
+		return (iterate_tricorn(rad));
 	else
 		return (0);
 }

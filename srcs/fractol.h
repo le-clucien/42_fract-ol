@@ -9,17 +9,15 @@
 # define CONST_INC 0.05
 # define CONSTANT_R -0.7269
 # define CONSTANT_I 0.1889
-// # define HOOK_SLEEP 5000
 
 # define JULIA 1
 # define MANDELBROT 2
+# define TRICORN 3
 
 # include "../libft/libft.h"
 # include "../minilibX/mlx.h"
 
 # include <math.h>
-
-# include <stdio.h> // oui oui
 
 typedef struct	s_xy
 {
@@ -76,6 +74,7 @@ int				hk_loop(t_dm *dm);
 
 int				iterate_julia(t_dxy z, t_dxy c);
 int				iterate_mandelbrot(t_dxy z);
+int				iterate_tricorn(t_dxy z);
 
 int				get_type(int *type, char *arg);
 
