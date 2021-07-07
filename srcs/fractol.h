@@ -19,7 +19,7 @@
 
 # include <math.h>
 
-# include <stdio.h> // oui
+# include <stdio.h> // oui oui
 
 typedef struct	s_xy
 {
@@ -71,7 +71,7 @@ void			draw_fractal(t_dm *dm);
 
 int				hk_key_press(int key, t_dm *dm);
 int				hk_key_release(int key, t_dm *dm);
-int				hk_button_press(int key, t_dm *dm);
+int				hk_button_press(int key, int x, int y, t_dm *dm);
 int				hk_loop(t_dm *dm);
 
 int				iterate_julia(t_dxy z, t_dxy c);
