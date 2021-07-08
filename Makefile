@@ -27,7 +27,7 @@ FILES_B		=	\
 				hook_bonus.c \
 				quit.c \
 				iterate.c \
-				main.c \
+				main_bonus.c \
 				parsing.c \
 				routers.c \
 				window.c
@@ -52,6 +52,8 @@ $(NAME)		:	lib mandatory
 
 all			:	$(NAME)
 
+bonus		:	lib bonus_part
+
 lib			:
 		cd libft ; make ; cd .. 
 
@@ -69,11 +71,12 @@ printv		:
 mandatory	: print_s $(OBJS) printv
 	$(CC) -o $(NAME) $(OBJS) $(LIBFT) $(MLX_FLG)
 
-bonus		: print_b $(OBJS_B) printv
+bonus_part	: print_b $(OBJS_B) printv
 	$(CC) -o $(NAME) $(OBJS_B) $(LIBFT) $(MLX_FLG)
 
 clean		:
 		rm -f $(OBJS)
+		rm -f $(OBJS_B)
 		cd libft ; make clean ; cd ..
 		echo "Clean ✓"
 

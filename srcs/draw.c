@@ -4,7 +4,7 @@
 
 int		color_set(int depth, int color_shift)
 {
-	if (depth == 0)
+	if (depth == 0 || depth == MAX_ITERATION)
 		return (0);
 	return (depth * (2 + color_shift * 2) |
 			depth * (3 + color_shift / 2) << 8 |

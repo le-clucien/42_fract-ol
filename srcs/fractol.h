@@ -7,8 +7,8 @@
 # define HEIGHT 600
 # define MAX_ITERATION 255
 # define CONST_INC 0.05
-# define CONSTANT_R -0.7269
-# define CONSTANT_I 0.1889
+# define CONSTANT_R -0.7769
+# define CONSTANT_I 0.1389
 
 # define JULIA 1
 # define MANDELBROT 2
@@ -75,6 +75,7 @@ int				hk_loop(t_dm *dm);
 int				iterate_julia(t_dxy z, t_dxy c);
 int				iterate_mandelbrot(t_dxy z);
 int				iterate_tricorn(t_dxy z);
+int				iterate_multicorn(t_dxy z);
 
 int				get_type(int *type, char *arg);
 
