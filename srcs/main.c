@@ -23,8 +23,8 @@ int	check_syntax(int ac, char **av)
 {
 	if (ac < 2)
 		return (0);
-	if (ft_strcmp(ft_toupper(av[1]), "JULIA") &&
-			ft_strcmp(ft_toupper(av[1]), "MANDELBROT"))
+	if (ft_strcmp(ft_toupper(av[1]), "JULIA")
+		&& ft_strcmp(ft_toupper(av[1]), "MANDELBROT"))
 		return (0);
 	return (1);
 }

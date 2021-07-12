@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-int		iterate_julia(t_dxy z, t_dxy c)
+int	iterate_julia(t_dxy z, t_dxy c)
 {
 	int		iterations;
 	t_dxy	tmp;
@@ -23,18 +23,18 @@ int		iterate_julia(t_dxy z, t_dxy c)
 		tmp.x = z.x;
 		tmp.y = z.y;
 		z.x = tmp.x * tmp.x - tmp.y * tmp.y + c.x;
-        z.y = 2 * tmp.x * tmp.y + c.y;
+		z.y = 2 * tmp.x * tmp.y + c.y;
 		iterations++;
 	}
 	return (iterations);
 }
 
-int		iterate_mandelbrot(t_dxy z)
+int	iterate_mandelbrot(t_dxy z)
 {
 	int		iterations;
 	t_dxy	tmp;
 	t_dxy	p;
-	
+
 	p = z;
 	z.x = 0;
 	z.y = 0;
@@ -42,20 +42,20 @@ int		iterate_mandelbrot(t_dxy z)
 	while (sqrt(z.x * z.x + z.y * z.y) <= 2.0 && iterations < MAX_ITERATION)
 	{
 		tmp.x = z.x;
-		tmp.y = z.y;
+		tmp.y = z.y;	
 		z.x = tmp.x * tmp.x - tmp.y * tmp.y + p.x;
-        z.y = 2 * tmp.x * tmp.y + p.y;
+		z.y = 2 * tmp.x * tmp.y + p.y;
 		iterations++;
 	}
 	return (iterations);
 }
 
-int		iterate_tricorn(t_dxy z)
+int	iterate_tricorn(t_dxy z)
 {
 	int		iterations;
 	t_dxy	tmp;
 	t_dxy	p;
-	
+
 	p = z;
 	z.x = 0;
 	z.y = 0;
@@ -65,7 +65,7 @@ int		iterate_tricorn(t_dxy z)
 		tmp.x = z.x;
 		tmp.y = z.y;
 		z.x = tmp.x * tmp.x - tmp.y * tmp.y + p.x;
-        z.y = -2 * tmp.x * tmp.y + p.y;
+		z.y = -2 * tmp.x * tmp.y + p.y;
 		iterations++;
 	}
 	return (iterations);

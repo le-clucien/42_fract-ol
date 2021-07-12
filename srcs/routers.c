@@ -50,9 +50,9 @@ void	set_data(t_dm *dm, int ac, char **av)
 
 void	mlx_looper(t_dm *dm)
 {
-	mlx_hook(dm->mlx->win, 2, (1L<<0), hk_key_press, dm);
-	mlx_hook(dm->mlx->win, 3, (1L<<1), hk_key_release, dm);
-	mlx_hook(dm->mlx->win, 4, (1L<<2), hk_button_press, dm);
+	mlx_hook(dm->mlx->win, 2, (1L << 0), hk_key_press, dm);
+	mlx_hook(dm->mlx->win, 3, (1L << 1), hk_key_release, dm);
+	mlx_hook(dm->mlx->win, 4, (1L << 2), hk_button_press, dm);
 	mlx_hook(dm->mlx->win, 17, (1L << 17), exit_program, dm);
 	mlx_loop_hook(dm->mlx->ptr, hk_loop, dm);
 	mlx_loop(dm->mlx->ptr);

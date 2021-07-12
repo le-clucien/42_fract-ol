@@ -29,19 +29,19 @@
 
 # include <math.h>
 
-typedef struct	s_xy
+typedef struct s_xy
 {
 	int			x;
 	int			y;
 }				t_xy;
 
-typedef struct	 s_dxy
+typedef struct s_dxy
 {
 	double		x;
 	double		y;
 }				t_dxy;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void		*ptr;
 	void		*win;
@@ -52,23 +52,22 @@ typedef struct	s_mlx
 	int			endian;
 }				t_mlx;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	int			type;
 	double		zoom;
 	t_dxy		move;
-	t_dxy		c; // constant
+	t_dxy		c;
 	int			color_shift;
 }				t_data;
 
-typedef struct	s_res
+typedef struct s_res
 {
 	t_xy		d;
 	t_dxy		f;
 }				t_res;
 
-
-typedef struct	s_dm
+typedef struct s_dm
 {
 	t_mlx		*mlx;
 	t_data		*data;

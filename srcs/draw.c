@@ -12,16 +12,16 @@
 
 #include "fractol.h"
 
-int		color_set(int depth, int color_shift)
+int	color_set(int depth, int color_shift)
 {
 	if (depth == 0 || depth == MAX_ITERATION)
 		return (0);
-	return (depth * (2 + color_shift * 2) |
-			depth * (3 + color_shift / 2) << 8 |
-			depth * (3 + color_shift) << 16);
+	return (depth * (2 + color_shift * 2)
+		| depth * (3 + color_shift / 2) << 8
+		| depth * (3 + color_shift) << 16);
 }
 
-int		iterate(t_dm *dm, t_dxy rad)
+int	iterate(t_dm *dm, t_dxy rad)
 {
 	if (dm->data->type == JULIA)
 		return (iterate_julia(rad, dm->data->c));
@@ -37,12 +37,12 @@ void	draw_pixel(t_dm *dm, t_xy p)
 {
 	t_dxy	rad;
 
-	rad.x = 1.5 * ((double)p.x - dm->res->f.x / 2) /
-			(0.5 * dm->data->zoom * dm->res->f.x) + dm->data->move.x;
-	rad.y = ((double)p.y - dm->res->d.y / 2) /
-			(0.5 * dm->data->zoom * dm->res->d.y) + dm->data->move.y;
-	dm->mlx->data[p.y * dm->res->d.x + p.x] =
-			color_set(iterate(dm, rad), dm->data->color_shift);
+	rad.x = 1.5 * ((double)p.x - dm->res->f.x / 2)
+		/ (0.5 * dm->data->zoom * dm->res->f.x) + dm->data->move.x;
+	rad.y = ((double)p.y - dm->res->d.y / 2)
+		/ (0.5 * dm->data->zoom * dm->res->d.y) + dm->data->move.y;
+	dm->mlx->data[p.y * dm->res->d.x + p.x]
+		= color_set(iterate(dm, rad), dm->data->color_shift);
 }
 
 void	draw_fractal(t_dm *dm)
