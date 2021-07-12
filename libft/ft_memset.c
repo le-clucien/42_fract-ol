@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clucien <clucien@42.fr>                    +#+  +:+       +#+        */
+/*   By: clucien <clucien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:14:35 by clucien           #+#    #+#             */
 /*   Updated: 2019/11/04 11:14:59 by clucien          ###   ########.fr       */

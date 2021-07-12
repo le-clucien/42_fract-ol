@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clucien <clucien@42.fr>                    +#+  +:+       +#+        */
+/*   By: clucien <clucien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 09:21:40 by clucien           #+#    #+#             */
 /*   Updated: 2019/11/11 09:21:41 by clucien          ###   ########.fr       */

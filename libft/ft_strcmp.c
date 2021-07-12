@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clucien <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: clucien <clucien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:42:03 by clucien           #+#    #+#             */
 /*   Updated: 2019/11/05 11:42:05 by clucien          ###   ########.fr       */
