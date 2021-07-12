@@ -28,6 +28,8 @@ int	check_syntax(int ac, char **av)
 		&& ft_strcmp(ft_toupper(av[1]), "MANDELBROT")
 		&& ft_strcmp(ft_toupper(av[1]), "TRICORN"))
 		return (0);
+	if (ac == 3 && !ft_atoi(av[2], &ac))
+		return (0);
 	return (1);
 }
 

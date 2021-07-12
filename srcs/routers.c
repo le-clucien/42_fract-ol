@@ -40,8 +40,7 @@ void	set_data(t_dm *dm, int ac, char **av)
 	(void)ac;
 	if (!get_type(&dm->data->type, av[1]))
 		exit_program(dm);
-	dm->data->c.x = CONSTANT_R;
-	dm->data->c.y = CONSTANT_I;
+	dm->data->c = get_constant(ac, av);
 	dm->data->zoom = 1.0;
 	dm->data->move.x = 0.0;
 	dm->data->move.y = 0.0;

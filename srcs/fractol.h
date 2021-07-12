@@ -87,6 +87,7 @@ int				iterate_tricorn(t_dxy z);
 int				iterate_multicorn(t_dxy z);
 
 int				get_type(int *type, char *arg);
+t_dxy			get_constant(int ac, char **av);
 
 int				exit_program(t_dm *dm);
 int				exit_program_msg(t_dm *dm, char *str);

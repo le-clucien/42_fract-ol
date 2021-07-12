@@ -24,3 +24,20 @@ int	get_type(int *type, char *arg)
 		return (ft_ret_msg("error: unknown error\n", 0));
 	return (1);
 }
+
+t_dxy	get_constant(int ac, char **av)
+{
+	t_dxy	out;
+	int		tmp;
+	
+	tmp = 0;
+	out.x = CONSTANT_R;
+	out.y = CONSTANT_I;
+	if (ac == 3)
+	{
+		ft_atoi(av[2], &tmp);
+		out.x += tmp * CONST_INC;
+		out.y += tmp * CONST_INC;
+	}
+	return (out);
+}
