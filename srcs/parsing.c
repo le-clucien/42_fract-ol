@@ -29,7 +29,7 @@ t_dxy	get_constant(int ac, char **av)
 {
 	t_dxy	out;
 	int		tmp;
-	
+
 	tmp = 0;
 	out.x = CONSTANT_R;
 	out.y = CONSTANT_I;
