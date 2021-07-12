@@ -42,7 +42,7 @@ int	iterate_mandelbrot(t_dxy z)
 	while (sqrt(z.x * z.x + z.y * z.y) <= 2.0 && iterations < MAX_ITERATION)
 	{
 		tmp.x = z.x;
-		tmp.y = z.y;	
+		tmp.y = z.y;
 		z.x = tmp.x * tmp.x - tmp.y * tmp.y + p.x;
 		z.y = 2 * tmp.x * tmp.y + p.y;
 		iterations++;

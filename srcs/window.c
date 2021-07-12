@@ -26,7 +26,7 @@ int	init_img(t_mlx *mlx, t_xy *res)
 	if (!mlx->img)
 		return (ft_ret_msg("error: mlx_new_image() failed\n", 0));
 	mlx->data = (int *)mlx_get_data_addr(
-		mlx->img, &mlx->bpp, &mlx->size_l, &mlx->endian);
+			mlx->img, &mlx->bpp, &mlx->size_l, &mlx->endian);
 	if (!mlx->data)
 		return (ft_ret_msg("error: mlx_det_data_addr() failed\n", 0));
 	return (1);
