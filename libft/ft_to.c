@@ -20,7 +20,7 @@ static int	ft_ctoup(int c)
 		return (c);
 }
 
-char		*ft_toupper(char *str)
+char	*ft_toupper(char *str)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ static int	ft_ctolow(int c)
 		return (c);
 }
 
-char		*ft_tolower(char *str)
+char	*ft_tolower(char *str)
 {
 	int	i;
 
