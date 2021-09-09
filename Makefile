@@ -52,10 +52,13 @@ $(NAME)		:	lib mandatory
 
 all			:	$(NAME)
 
-bonus		:	lib bonus_part
+bonus		:	minilib lib bonus_part
 
 lib			:
 		cd libft ; make ; cd .. 
+
+minilib		:
+		cd minilibX ; ./configure ; cd ..
 
 print_s		:
 		echo -n "srcs: "
