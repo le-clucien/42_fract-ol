@@ -48,7 +48,7 @@ MLX_FLG		=	-LminilibX -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 
 .SILENT		:
 
-$(NAME)		:	lib mandatory
+$(NAME)		:	minilib lib mandatory
 
 all			:	$(NAME)
 
