@@ -50,10 +50,10 @@ void	draw_fractal(t_dm *dm)
 	t_xy	position;
 
 	position.x = 0;
-	while (position.x <= dm->res->d.x)
+	while (position.x < dm->res->d.x)
 	{
 		position.y = 0;
-		while (position.y <= dm->res->d.y)
+		while (position.y < dm->res->d.y)
 		{
 			draw_pixel(dm, position);
 			position.y++;
